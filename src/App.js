@@ -14,10 +14,10 @@ const handleSubmit=(e)=>{
 }
 
   const calculateAge=(birthDate)=> {
-  var birthDateObj = new Date(birthDate);
+  var birthDateTemp = new Date(birthDate);
   var currentDate = new Date();
-  var differenceMs = currentDate - birthDateObj;
-  var ageDate = new Date(differenceMs); 
+  var difference = currentDate - birthDateTemp;
+  var ageDate = new Date(difference); 
   var age = Math.abs(ageDate.getUTCFullYear() - 1970);
   
   return age;
@@ -25,11 +25,12 @@ const handleSubmit=(e)=>{
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-                    <h2>Age Calculator</h2>
-                    <div className='mb-2'>
+                   <div className='label'><h1>Age Calculator</h1></div> 
+                    <div >
                         <label htmlFor="dateOfBirthInput">Enter Your Date of Birth</label>
-                        <br>
-                        </br>
+                        <br/>
+                        <br/>
+
                         <input type="date" id="dateInput"className='form-control-new'
                             value={datebirth} onChange={(e) => setDatebirth(e.target.value)} />
                     </div>
